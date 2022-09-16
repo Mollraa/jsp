@@ -17,6 +17,15 @@
 	<!-- 라이브러리 의존성을 관리 하는 곳 -->
 	<dependencies>
 
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>

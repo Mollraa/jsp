@@ -1,6 +1,6 @@
 package co.micol.hee.member.serviceImpl;
 
-import java.lang.reflect.Member;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

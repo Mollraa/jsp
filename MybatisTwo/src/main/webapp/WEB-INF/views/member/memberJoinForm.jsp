@@ -82,7 +82,7 @@
 			return true;
 		}
 
-		function idChek() { //Ajax를 이용해서 id 중복체크를 한다.
+		function idCheck() { //Ajax를 이용해서 id 중복체크를 한다.
 
 			let id = document.getElementById("memberId").value;
 
@@ -103,17 +103,18 @@
 					
 				}
 				// }이거하나없고, 실패하면 else 이후 CallBack함수
-			}
+			
 			// Send a request
 			xhttp.open("GET", "ajaxMemberIdCheck.do?id=" + id);
 			xhttp .send(); */
 			
 			
 			//fetch를 사용한 ajax
-			ftech('ajaxMemberIdCheck.do?id='+id)
+			fetch('ajaxMemberIdCheck.do?id='+id)
 			.then(response => response.text());
-			.then(response => result(data)); //이곳에 Call Back함수를 작성하면 됨
-		}
+			.then(data => responseResult(data)); //이곳에 Call Back함수를 작성하면 됨
+			}
+		
 			
 			function result(data) { //fetch처리 callback함수
 				if (this.readyState == 4 && this.status == 200) {
