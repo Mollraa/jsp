@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.hee.mapper.NoticeMapper">
+
+	<select id="noticeSelectList"
+		resultType="co.micol.hee.notice.service.NoticeVO">
+		SELECT * FROM NOTICE ORDER BY NOTICE_ID DESC
+	</select>
+
+	<select id="noticeSelect"
+		resultType="co.micol.hee.notice.service.NoticeVO">
+		SELECT * FROM NOTICE WHERE NOTICE_ID = #{noticeId}
+		
+	</select>
+
+	<insert id="noticeInsert">
+		<selectKey keyProperty="noticeId" resultType="int"
+			order="BEFORE">
+			select case when max(notice_id) is null then 1 else max(notice_id) + 1 end
+			as id
+			from notice
+		</selectKey>
+
+		INSERT INTO NOTICE VALUES(#{noticeId}, #{noticeWriter},
+				#{noticeTitle}, #{noticeSubject}, #{noticeDate},
+				#{noticeAttech},#{noticeAttechDir}, 0)
+	</insert>
+
+	<update id="noticeUpdate">
+	update notice
+	<set>
+	<if test="noticeWriter != null">NOTICE_WRITER = #{noticeWriter},</if>
+	<if test="noticeTitle != null">NOTICT_TITLE = #{noticeTitle},</if>
+	<if test="noticeSubject != null">NOTICE_SUBJECT = #{noticeSubject},</if>
+	<if test="noticeDate != null">NOTICE_DATE = #{noticeDate},</if>
+	<if test="noticeAttech != null">NOTICE_ATTECH = #{noticeAtteh},</if>
+	<if test="noticeAttechDir != null">NOTICE_ATTECH_DIR = #{noticeAttehDir}</if>
+	</set>
+	WHERE NOTICE_ID = #{noticId}
+	</update>
+
+	<delete id="noticeDelete">
+	DELETE FROM notice WHERE notice_id = #{noticeId}
+	</delete>
+
+	<update id="noticeHitUpdate" parameterType="int">
+	update notice set notice_hit = notice_hit + 1 where notice_id = #{id}
+	</update>
+	
+
+</mapper>
