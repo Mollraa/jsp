@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center">
-	<div><h1>${message }</h1></div>
-</div>
+<jsp:forward page="main.do"/>
 </body>
 </html>

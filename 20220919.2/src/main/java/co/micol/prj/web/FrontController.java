@@ -73,11 +73,12 @@ public class FrontController extends HttpServlet {
 					//viewPage = "/WEB-INF/views/" + viewPage + ".jsp"; 
 					
 					viewPage = "/WEB-INF/views/" + viewPage.substring(3) + ".jsp";
-					System.out.println("viewPage: " + viewPage);
 					
 				} else {
 					viewPage = viewPage + ".tiles"; // tiles layout 사용
 				}
+				
+				System.out.println("viewPage: " + viewPage);
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 				dispatcher.forward(request, response);
