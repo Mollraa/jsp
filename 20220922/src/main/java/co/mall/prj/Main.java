@@ -1,9 +1,9 @@
-package co.micol.prj;
+package co.mall.prj;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.micol.prj.common.Command;
+import co.mall.prj.common.Command;
 
 public class Main implements Command {
 
